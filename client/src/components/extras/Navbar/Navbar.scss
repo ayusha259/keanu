@@ -1,0 +1,141 @@
+.navbar-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 70;
+  border-bottom: 1px solid var(--grayish);
+  background-color: white;
+  box-shadow: 0 1px 8px 2px rgba(0, 0, 0, 0.05);
+
+  .navbar {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    @media screen and (max-width: 300px) {
+      padding: 10px 15px;
+    }
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    .head {
+      font-size: 2.1rem;
+      letter-spacing: 5px;
+      @media screen and (max-width: 780px) {
+        font-size: 1.9rem;
+      }
+      @media screen and (max-width: 300px) {
+        font-size: 1.6rem;
+      }
+    }
+
+    .left-links {
+      display: flex;
+      list-style: none;
+      li {
+        font-size: 0.9rem;
+        margin-left: 20px;
+        font-weight: 500;
+        color: var(--gray-font);
+        transition: 0.2s;
+        &:hover {
+          cursor: pointer;
+          color: var(--blue);
+          transform: translateY(-2px);
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    .navbar-auth-container {
+      display: flex;
+      align-items: center;
+      .user-info {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        .user-greet {
+          @media screen and (max-width: 450px) {
+            display: none;
+          }
+        }
+        .user-icon {
+          display: none;
+          margin-left: 10px;
+          font-size: 1.2rem;
+          @media screen and (max-width: 450px) {
+            display: block;
+          }
+        }
+        #name {
+          color: var(--blue);
+          font-weight: 600;
+        }
+        @media screen and (max-width: 780px) {
+          font-size: 1.1rem;
+        }
+      }
+      i {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .sign-in-btn {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blue);
+      cursor: pointer;
+    }
+
+    .cart {
+      background-color: var(--blue);
+      padding: 10px;
+      border-radius: 50%;
+      margin-left: 20px;
+      :hover {
+        cursor: pointer;
+      }
+      i {
+        color: white;
+        font-size: 1.1rem;
+      }
+      @media screen and (max-width: 780px) {
+        padding: 7px 9px;
+        i {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .hamburger {
+      margin-left: 20px;
+      padding: 10px 11px;
+      border-radius: 50%;
+      i {
+        font-size: 1.3rem;
+      }
+      &:hover {
+        background-color: var(--grayish);
+        cursor: pointer;
+      }
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
+      @media screen and (max-width: 780px) {
+        padding: 7px 9px;
+      }
+    }
+  }
+}

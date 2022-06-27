@@ -1,0 +1,15 @@
+.dropdown-head {
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  i {
+    font-size: 0.9rem;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,110 @@
+.cart-container {
+  position: fixed;
+  height: 100vh;
+  inset: 0;
+  background-color: rgba($color: #eeee, $alpha: 0.4);
+  backdrop-filter: blur(14px);
+  z-index: 60;
+}
+
+.cart-main {
+  float: right;
+  border-radius: 12px;
+  position: relative;
+  top: 90px;
+  right: 60px;
+  width: 350px;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 1px 8px 2px rgba(0, 0, 0, 0.15);
+  @media screen and (max-width: 500px) {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .cart-header {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    font-weight: 500;
+  }
+  .cart-items-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    overflow-y: auto;
+    max-height: 210px;
+
+    .empty-cart {
+      text-align: center;
+      font-weight: 600;
+      color: var(--gray-font);
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      height: 60px;
+      border-bottom: 1px solid var(--gray-border);
+      align-items: center;
+      .cart-item-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        width: 50%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .cart-item-price {
+        font-weight: 500;
+        font-size: 1.1rem;
+        span {
+          font-size: 0.7rem;
+        }
+      }
+      .cart-item-img {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  .cart-actions {
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      align-items: center;
+      span {
+        &:nth-child(2) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .cart-btns {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+      .cart-btn {
+        font-size: 0.9rem;
+        background-color: var(--blue);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: var(--purple);
+        }
+      }
+    }
+  }
+}
+
+.cart-items-list::-webkit-scrollbar-thumb {
+  background-color: red;
+}

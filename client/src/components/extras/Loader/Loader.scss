@@ -1,0 +1,36 @@
+.loader {
+  inset: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  animation: rotation 3s linear infinite;
+}
+
+.circle {
+  transform: scale(0);
+  margin: -5px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  animation: grow 2s linear infinite;
+  &:nth-child(2) {
+    background-color: var(--light-purple);
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  50% {
+    transform: scale(1);
+  }
+}
