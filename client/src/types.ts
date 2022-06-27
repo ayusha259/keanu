@@ -13,7 +13,10 @@ export interface IProduct {
   countInStock: number;
   rating: number;
   images: {
-    image: string;
+    image: {
+      url: string;
+      publid_id: string;
+    };
     id: number;
   }[];
   slug: string;

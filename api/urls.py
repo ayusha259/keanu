@@ -54,5 +54,7 @@ urlpatterns = [
 
     path('reviews', views.post_product_review, name='post_review'),
 
-    path('reviews/<int:pk>', views.get_product_reviews, name='get_product_reviews')
+    path('reviews/<int:pk>', views.get_product_reviews, name='get_product_reviews'),
+
+    path("test", views.getImages)
 ]

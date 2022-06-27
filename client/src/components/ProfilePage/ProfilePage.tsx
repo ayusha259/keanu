@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { IRootState } from "../../types";
-import { motion } from "framer-motion";
 import "./ProfilePage.scss";
 
 const ProfilePage = () => {

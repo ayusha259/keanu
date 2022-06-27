@@ -45,13 +45,13 @@ const Product = ({ product }: IProps) => {
 
   return (
     <div className="product">
-      <div className="product-header">
+      {/* <div className="product-header">
         <i className="fas fa-share-alt"></i>
         <i className="fas fa-heart"></i>
-      </div>
+      </div> */}
       <div className="image-container">
         {product.images.length > 0 ? (
-          <ImageContainer image={product.images[0].image} />
+          <ImageContainer image={product.images[0].image.url} />
         ) : (
           ""
         )}

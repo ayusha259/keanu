@@ -1,10 +1,9 @@
-from itertools import product
 from django.http import Http404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .serializers import OrderDetailSerializer, OrderSerializer, ProductSerializer, ReviewSerializer, UserLoginSerializer, UserRegisterSerializer
-from .models import Order, OrderItem, Product, Review, ShippingAddress
+from .serializers import OrderDetailSerializer, OrderSerializer, PhotoSerializer, ProductSerializer, ReviewSerializer, UserLoginSerializer, UserRegisterSerializer
+from .models import Order, OrderItem, Product, Review, ShippingAddress, ProductImage
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
@@ -47,7 +46,7 @@ def get_all_products(request):
         data = Product.objects.all()
     data = data.annotate(num_reviews=Count('reviews')).annotate(avg_rating = Avg('reviews__rating')).order_by(sort_by)
     data = paginator.paginate_queryset(data, request)
-    serializer = ProductSerializer(data, many=True, context={'request':request})
+    serializer = ProductSerializer(data, many=True)
     return paginator.get_paginated_response(serializer.data)
 
 
@@ -55,7 +54,7 @@ def get_all_products(request):
 def get_product(request, pk):
     try:
         product = Product.objects.annotate(num_reviews=Count('reviews')).annotate(avg_rating = Avg('reviews__rating')).get(slug = pk)
-        serializer = ProductSerializer(product, context={'request':request})
+        serializer = ProductSerializer(product)
     except IndexError:
         raise Http404()
     return Response({'product': serializer.data})
@@ -64,7 +63,7 @@ def get_product(request, pk):
 @api_view(['GET'])
 def temp_view(request):
     product = Product.objects.get(_id=11)
-    serializer = ProductSerializer(product, context={'request':request})
+    serializer = ProductSerializer(product)
     return Response({'product': serializer.data})
 
 @api_view(['GET'])
@@ -173,4 +172,10 @@ def get_order_by_id(request, pk):
     except:
         raise Http404()
     serializer = OrderDetailSerializer(order)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getImages(request):
+    photos = ProductImage.objects.all()
+    serializer = PhotoSerializer(photos, many=True)
     return Response(serializer.data)

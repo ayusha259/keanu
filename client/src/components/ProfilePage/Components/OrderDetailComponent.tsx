@@ -5,8 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import { IRootState } from "../../../types";
 import Loader from "../../extras/Loader/Loader";
 import { motion } from "framer-motion";
-
-import { IOrder } from "./OrderComponent";
 const convertNumberToString = (num: number) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -64,7 +62,7 @@ const OrderDetailComponent = () => {
                       <img
                         src={
                           i.product.images.length > 0
-                            ? i.product.images[0].image
+                            ? i.product.images[0].image.url
                             : ""
                         }
                         alt=""

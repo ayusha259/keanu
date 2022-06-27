@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import Rating from "@mui/material/Rating";
 import Loader from "../extras/Loader/Loader";
 import ImageContainer from "../extras/ImageContainer/ImageContainer";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import "./ProductPage.scss";
 import ReviewList from "../Review/ReviewList";
@@ -57,7 +57,7 @@ const ProductPage = () => {
         type: "CART_ADD_ITEM",
         payload: {
           _id: product._id,
-          image: product.images.length > 0 ? product.images[0].image : "",
+          image: product.images.length > 0 ? product.images[0].image.url : "",
           title: product.title,
           qty: qty,
           price: price[0],
@@ -109,7 +109,7 @@ const ProductPage = () => {
                   <i className="fa-solid fa-arrow-left"></i>
                 </div>
                 {product.images.length > 0 ? (
-                  <ImageContainer image={product.images[currImage].image} />
+                  <ImageContainer image={product.images[currImage].image.url} />
                 ) : (
                   // <ImageContainer image="media/product_1/81675XSuUoL._SL1500_.jpg" />
                   ""
@@ -125,13 +125,13 @@ const ProductPage = () => {
                 {product.images.length > 0
                   ? product.images.map((image, idx) => (
                       <div
-                        key={idx}
+                        key={image.image.publid_id}
                         onClick={() => setCurrImage(idx)}
                         className={`images-list-item ${
                           idx === currImage ? "outline" : ""
                         }`}
                       >
-                        <ImageContainer image={image.image} />
+                        <ImageContainer image={image.image.url} />
                       </div>
                     ))
                   : ""}

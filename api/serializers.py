@@ -1,16 +1,21 @@
-from dataclasses import field
-from email.policy import default
 from rest_framework import serializers
 from .models import Order, OrderItem, Product, ProductImage, Review, ShippingAddress
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
 from rest_framework.exceptions import NotFound
+from cloudinary.models import CloudinaryResource
+
+# 'image', 'metadata', 'picture', 'public_id', 'resource_type', 'signature', 'source', 'type', 'url', 'url_options', 'validate', 'version', 'video', 'video_thumbnail'
+
+class ImageSerializer(serializers.Serializer):
+    url = serializers.CharField()
+    public_id = serializers.CharField()
 
 class PhotoSerializer(serializers.ModelSerializer):
+    image = ImageSerializer()
     class Meta:
         model = ProductImage
         fields = ['id', 'image']
-
 
 class ProductSerializer(serializers.ModelSerializer):
     images = PhotoSerializer(many=True)

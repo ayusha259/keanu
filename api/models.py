@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 class Product(models.Model):
     _id = models.AutoField(primary_key=True, editable=False, unique=True, db_index=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -23,7 +23,7 @@ def product_image_path(instance, filename):
         return f"product_{instance.product._id}/{filename}"
 
 class ProductImage(models.Model):
-    image = models.ImageField(upload_to = product_image_path)
+    image = CloudinaryField('images')
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
 
 class Review(models.Model):
