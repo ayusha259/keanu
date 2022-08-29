@@ -47,16 +47,16 @@ function App() {
         <Navbar />
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/user" element={<ProfilePage />}>
+            <Route path="" element={<HomePage />} />
+            <Route path="user" element={<ProfilePage />}>
               <Route index element={<ProfileComponent />} />
               <Route path="orders" element={<OrderComponent />} />
               <Route path="orders/:id" element={<OrderDetailComponent />} />
             </Route>
-            <Route path="/product/:slug" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/login" element={<AuthContainer />}>
+            <Route path="product/:slug" element={<ProductPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="login" element={<AuthContainer />}>
               <Route index element={<LoginComponent />} />
               <Route path="register" element={<SignupComponent />} />
             </Route>
