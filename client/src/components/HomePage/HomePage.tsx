@@ -3,7 +3,7 @@ import FilterBar from "../extras/FilterBar/FilterBar";
 import ProductList from "../ProductList/ProductList";
 import { IProduct, IRootState } from "../../types";
 import "./HomePage.scss";
-import axios from "axios";
+import axios from "../../lib/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -14,7 +14,7 @@ const HomePage = () => {
     products: IProduct[];
     count: number;
   }>({ products: [], count: 0 });
-
+  
   const [showFilterBar, setShowFilterBar] = useState<boolean>(false);
   const [filterOptions, setFilterOptions] = useState<{
     categories: string[];

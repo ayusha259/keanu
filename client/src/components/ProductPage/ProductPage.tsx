@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../lib/axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { IProduct } from "../../types";
 import { useDispatch } from "react-redux";

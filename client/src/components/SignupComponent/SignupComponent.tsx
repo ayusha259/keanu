@@ -6,7 +6,7 @@ import { IRootState } from "../../types";
 import { Alert } from "@mui/material";
 import { motion } from "framer-motion";
 import "./SignupComponent.scss";
-import axios from "axios";
+import axios from "../../lib/axios";
 
 const SignupComponent = () => {
   const [data, setData] = useState<{

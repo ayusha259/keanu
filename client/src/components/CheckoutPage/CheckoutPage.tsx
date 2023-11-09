@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../lib/axios";
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
